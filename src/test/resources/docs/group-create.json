@@ -1,7 +1,7 @@
 {
   "type": "PreArr",
-  "name": "group_from_gatling",
-  "displayName": "group_display_name_2",
+  "name": "gatling_group_name_1",
+  "displayName": "gatling_display_name_1",
   "e164Address": "+2234578",
   "domainName": "kontron.com",
   "description": "group_description",

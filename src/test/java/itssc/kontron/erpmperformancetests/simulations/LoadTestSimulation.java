@@ -11,6 +11,7 @@ import itssc.kontron.erpmperformancetests.utils.GatlingProps;
 import static io.gatling.javaapi.core.CoreDsl.rampUsers;
 import static io.gatling.javaapi.http.HttpDsl.http;
 
+// TODO update this
 public class LoadTestSimulation extends Simulation {
 
   private final GatlingProps props = new GatlingProps();
@@ -25,7 +26,7 @@ public class LoadTestSimulation extends Simulation {
   {
     setUp(
       createScenario.injectOpen(
-        rampUsers(props.readPreload().users()).during(props.readPreload().rampDuration())
+        rampUsers(props.preload().users()).during(props.preload().rampDuration())
       )
     ).protocols(httpProtocol);
   }

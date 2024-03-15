@@ -5,7 +5,7 @@ public final class Constants {
   private Constants() {}
 
   public static class ScenarioVars {
-    public static final String CAMUNDA_PROCESS_NAME = "camundaProcessName";
+    public static final String CAMUNDA_PROCESSES = "camundaProcesses";
     public static final String USER_ID = "userId";
 
     public static final String REPEAT_COUNTER = "repeatCounter";

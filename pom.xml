@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <jackson.version>2.5.2</jackson.version>
+        <jackson.version>2.16.1</jackson.version>
     </properties>
 
     <dependencies>
@@ -53,6 +53,8 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <build>
@@ -66,14 +68,6 @@
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
                 <version>${gatling.plugin.version}</version>
-                <configuration>
-                    <simulationClass>itssc.kontron.erpmperformancetests.simulations.LoadTestSimulation</simulationClass>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

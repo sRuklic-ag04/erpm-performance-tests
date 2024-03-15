@@ -1,0 +1,3 @@
+entityName,documentPath,endpointPath
+group,docs/group,/v1/groups
+number directory,docs/numberDirectory,/v1/number-directory/entries

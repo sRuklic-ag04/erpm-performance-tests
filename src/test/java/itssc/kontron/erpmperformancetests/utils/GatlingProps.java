@@ -7,20 +7,20 @@ public class GatlingProps {
 
   private final String baseUrl;
   private final Scenario preload;
-  private final Scenario editBase;
-  private final Scenario editExt;
-  private final Scenario readPreload;
+  private final Scenario create;
+  private final Scenario update;
+  private final Scenario delete;
   private final Keycloak keycloak;
 
   public GatlingProps() {
     Config config = ConfigFactory.load();
 
     this.keycloak = new Keycloak(config);
-    this.baseUrl = config.getString("xcap.base-url");
+    this.baseUrl = config.getString("base-url");
     this.preload = new Scenario("preload", config);
-    this.editBase = new Scenario("edit-base", config);
-    this.editExt = new Scenario("edit-ext", config);
-    this.readPreload = new Scenario("read-preload", config);
+    this.create = new Scenario("create", config);
+    this.update = new Scenario("update", config);
+    this.delete = new Scenario("delete", config);
   }
 
   public static class Keycloak {
@@ -93,7 +93,6 @@ public class GatlingProps {
   }
 
   public static class Scenario {
-    private final String documentSelector;
     private final String feedPath;
     private final String authHeaderName;
     private final String authHeaderValue;
@@ -105,7 +104,6 @@ public class GatlingProps {
     public Scenario(String scenario, Config config) {
       final String prefix = "scn." + scenario + ".";
 
-      this.documentSelector = config.getString(prefix + "document-selector");
       this.feedPath = config.hasPath(prefix + "feed-path") ? config.getString(prefix + "feed-path") : null;
       this.authHeaderName = config.getString(prefix + "auth-header-name");
       this.authHeaderValue = config.getString(prefix + "auth-header-value");
@@ -113,10 +111,6 @@ public class GatlingProps {
       this.delay = config.getInt(prefix + "delay");
       this.users = config.getInt(prefix + "users");
       this.rampDuration = config.getInt(prefix + "ramp-duration");
-    }
-
-    public String documentSelector() {
-      return this.documentSelector;
     }
 
     public String feedPath() {
@@ -160,15 +154,16 @@ public class GatlingProps {
     return this.preload;
   }
 
-  public Scenario editBase() {
-    return this.editBase;
+  public Scenario create() {
+    return this.create;
   }
 
-  public Scenario editExt() {
-    return this.editExt;
+  public Scenario update() {
+    return this.update;
   }
 
-  public Scenario readPreload() {
-    return this.readPreload;
+  public Scenario delete() {
+    return this.delete;
   }
+
 }
